@@ -1,23 +1,32 @@
 import numpy as np
 import pandas as pd
-import chart_studio.plotly as py
-from plotly.offline import plot
+import plotly.graph_objects as g
+
 
 """
-READ IN JSON data from COVID19
+READ IN JSON data
+From COVID19 API @
+https://covidtracking.com/api/v1/states/current.json
 """
+
 dfimport = pd.read_json('https://covidtracking.com/api/v1/states/current.json')
 
 #Import data clean
 df = dfimport.loc[0:50, ['state', 'fips', 'positive', 'death']]
-
-
 df['text'] = "State: "+df['state'].astype(str) +"<br>"+ "Positive Cases: "+df['positive'].astype(str) +"<br>"+ "Deaths: "+df['death'].astype(str)
 
-data = [dict(type='choropleth', autocolorscale=True, locations=df['state'], z=df['positive'], locationmode='USA-states', text=df['text'], colorbar = dict(title="Postive Cases"))]
+fig = go.Figure(data=go.Choropleth(
+    locations=df['state'], # Spatial coordinates
+    z = df['positive'], # Data to be color-coded
+    text=df['text'],
+    locationmode = 'USA-states', # set of locations match entries in `locations`
+    colorscale = 'Reds',
+    colorbar_title = "Postive Cases",
+))
 
-layout = dict(title='Positive COVID-19 Cases in the US', geo = dict(scope='usa', projection=dict(type='albers usa'), showlakes= True, lakecolor='rgb(66,165,245)',),)
+fig.update_layout(
+    title_text = 'Positive COVID-19 Cases in the US',
+    geo_scope='usa', # limite map scope to USA
+)
 
-fig = dict(data=data,layout=layout)
-
-plot(fig, validate=False, filename='index.html')
+fig.write_html("/home/ernie/Documents/python/covid19/index.html")
