@@ -12,7 +12,7 @@ What things you need to install the software and how to install them
 
 If you do try to run the app, please note that you will need an API key from "News API". The app in this repository has the key abstracted. You will need to input your key at the end of the ```news_url``` link located in the ```update_news()``` function.
 
-```
+```python
 def update_news():
     news_url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=[KEY]"
     ...
