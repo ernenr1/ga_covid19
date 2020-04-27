@@ -129,6 +129,7 @@ github = 'https://git.generalassemb.ly/Ernie-Enriquez/ga_covid19'
 news_api = 'https://newsapi.org/'
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 app.layout = html.Div(children=[
     html.H1(
         children='SARS-CoV-2 Map/News Tracker',
