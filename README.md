@@ -20,21 +20,13 @@ def update_news():
 
 ## Deployment
 
-Currently this app is deployed and hosted on Heroku
+This app will be deployed and hosted on Heroku once finished.
 
 ## Built With
 
 * [The COVID Tracking Project](https://covidtracking.com/) - COVID-19 Country Data API
 * [COVID 19 API](https://covid19api.com/) - COVID-19 Data API for U.S States
 * [News API](https://newsapi.org/) - Provides the news feed on COVID-19
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
