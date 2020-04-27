@@ -85,7 +85,7 @@ DASH App intialization
 """
 
 def update_news():
-    news_url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=[KEY]"
+    news_url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=c0075f202afc4576904e8976c8863f6f"
     response = requests.request("GET", news_url, headers=headers, data = payload)
     news_data = response.json()
     df_news_import = pd.json_normalize(news_data["articles"])
