@@ -1,5 +1,7 @@
 # SARS-CoV-2 Positive Cases Map/News Tracker
 General Assembly Final Project
+<br>
+v0.4.2
 
 ## Getting Started
 

@@ -36,12 +36,13 @@ world_fig = go.Figure(data=go.Choropleth(
     text = df_world['text'],
     colorscale = 'Reds',
     locationmode = 'country names',
+    colorbar_title = "Positive Cases",
 ))
 
 world_fig.update_layout(
-    title_text='Test',
+    title_text='Positive COVID-19 Cases in the World',
     geo=dict(
-        #showframe=False,
+        showframe=False,
         showcoastlines=False,
         projection_type='equirectangular'
     )
@@ -91,7 +92,7 @@ def update_news():
     df_news = df_news_import.loc[0:20, ["title", "url"]]
     return df_news
 
-def news_html_table(max_rows=15):
+def news_html_table(max_rows=20):
     df_news_html = update_news()
     return html.Div(
         [
@@ -124,29 +125,51 @@ def news_html_table(max_rows=15):
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-github = str('https://www.google.com/')
+github = 'https://git.generalassemb.ly/Ernie-Enriquez/ga_covid19'
+news_api = 'https://newsapi.org/'
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div(children=[
-    html.H1(children='Hello World!'),
+    html.H1(
+        children='SARS-CoV-2 Map/News Tracker',
+        style={
+            'textAlign': 'center'
+        }
+    ),
 
-    html.Div(children='''
-        Dash: A web application framework for Python.
-    '''),
+    html.Div(html.H5(children='COVID-19 Positive Cases as of'), style={'textAlign': 'center'}),
 
+#    html.Div([
+#       dcc.Dropdown(
+ #           options=[
+  #              {'label': 'World Map', 'value': 'WM'},
+   #             {'label': 'US Map', 'value': 'US'}
+#            ],
+#       placeholder='Select a Map',
+#       clearable=False,
+#       style=dict(width='40%')
+#       )
+#   ]),
 
     html.Div([
-        dcc.Graph(id='g1', figure=world_fig)
-    ], className="eight columns"),
-    html.Div([
-        dcc.Graph(id='g2', figure=us_fig),
-        html.A('Code on Github', href=github)
-    ], className="eight columns"),
+        html.Div([
+            html.Div([
+                dcc.Graph(id='g1', figure=world_fig)
+            ]),
 
-    html.Div([
-        html.H3("COVID News"),
-        news_html_table()
-    ]),
+            html.Div([
+                dcc.Graph(id='g2', figure=us_fig),
+            ],)
+        ], className="eight columns", style={'width': '65%', 'display': 'inline-block'}),
+
+        html.Div([
+            html.H3("COVID News"),
+            news_html_table(),
+            html.A('Code on Github', href=github),
+            html.Br(),
+            html.A('Powered by News API', href=news_api)
+        ], className="four columns")
+    ])
 ])
 if __name__ == '__main__':
     app.run_server(debug=True)
