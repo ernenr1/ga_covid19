@@ -1,67 +1,32 @@
-# General Assembly Final Project
-SARS-CoV-2 Positive Cases Map
-<br>
-Ernie Enriquez
+# SARS-CoV-2 Positive Cases Map/News Tracker
+General Assembly Final Project
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This status of this project is a proof of concept at the moment. There are still alot of fixes to be made regarding bugs/CSS positioning. 
+
 
 ### Prerequisites
 
 What things you need to install the software and how to install them
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+If you do try to run the app, please note that you will need an API key from "News API". The app in this repository has the key abstracted. You will need to input your key at the end of the ```news_url``` link located in the ```update_news()``` function.
 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+def update_news():
+    news_url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=[KEY]"
+    ...
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Currently this app is deployed and hosted on Heroku
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [The COVID Tracking Project](https://covidtracking.com/) - COVID-19 Country Data API
+* [COVID 19 API](https://covid19api.com/) - COVID-19 Data API for U.S States
+* [News API](https://newsapi.org/) - Provides the news feed on COVID-19
 
 ## Contributing
 
@@ -73,7 +38,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ernie Enriquez** - *Initial work* - [Ernie Enriquez](https://github.com/ernenr1)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -82,7 +47,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Big thank you to:
+* [Martin Skarzynski](https://marskar.github.io/) for teaching this Python class and help developing this app.
+* General Assembly Python classmates
+* General Assembly
