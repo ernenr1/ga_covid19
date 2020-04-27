@@ -1,9 +1,7 @@
 # General Assembly Final Project
-Final GA Project COVID-19
-
-# Project Title
-
-One Paragraph of project description goes here
+SARS-CoV-2 Positive Cases Map
+<br>
+Ernie Enriquez
 
 ## Getting Started
 
