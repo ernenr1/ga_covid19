@@ -1,4 +1,4 @@
-# ga_covid19
+# General Assembly Final Project
 Final GA Project COVID-19
 
 # Project Title
