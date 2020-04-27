@@ -137,7 +137,7 @@ app.layout = html.Div(children=[
         }
     ),
 
-    html.Div(html.H5(children='COVID-19 Positive Cases as of'), style={'textAlign': 'center'}),
+    html.Div(html.H5(children='COVID-19 Statistics Dashboard (Hover map for more info)'), style={'textAlign': 'center'}),
 
 #    html.Div([
 #       dcc.Dropdown(

@@ -1,7 +1,7 @@
 # SARS-CoV-2 Positive Cases Map/News Tracker
 General Assembly Final Project
 <br>
-v0.4.2
+v0.4.3
 
 ## Getting Started
 
@@ -26,8 +26,8 @@ This app will be deployed and hosted on Heroku once finished.
 
 ## Built With
 
-* [The COVID Tracking Project](https://covidtracking.com/) - COVID-19 Country Data API
-* [COVID 19 API](https://covid19api.com/) - COVID-19 Data API for U.S States
+* [The COVID Tracking Project](https://covidtracking.com/) - COVID-19 Data API for U.S States
+* [COVID 19 API](https://covid19api.com/) - COVID-19 World Data API
 * [News API](https://newsapi.org/) - Provides the news feed on COVID-19
 
 ## Authors
