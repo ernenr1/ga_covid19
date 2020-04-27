@@ -79,11 +79,74 @@ us_fig.update_layout(
     title_text = 'Positive COVID-19 Cases in the US',
     geo_scope='usa', # limit map scope to USA
 )
-app = dash.Dash(__name__)
+"""
+DASH App intialization
+"""
+
+def update_news():
+    news_url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=c0075f202afc4576904e8976c8863f6f"
+    response = requests.request("GET", news_url, headers=headers, data = payload)
+    news_data = response.json()
+    df_news_import = pd.json_normalize(news_data["articles"])
+    df_news = df_news_import.loc[0:20, ["title", "url"]]
+    return df_news
+
+def news_html_table(max_rows=15):
+    df_news_html = update_news()
+    return html.Div(
+        [
+            html.Div(
+                html.Table(
+                    #Header
+                    [html.Tr([html.Th()])]
+                    +
+                    #body
+                    [
+                        html.Tr(
+                            [
+                                html.Td(
+                                    html.A(
+                                        df_news_html.iloc[i]["title"],
+                                        href=df_news_html.iloc[i]["url"],
+                                        target="_blank"
+                                    )
+                                )
+                            ]
+                        )
+                        for i in range(min(len(df_news_html), max_rows))
+                    ]
+                ),
+                style={"height": "750px", "overflowY": "scroll"},
+            ),
+        ],
+        style={"height": "100%"}
+    )
+
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+github = str('https://www.google.com/')
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.layout = html.Div(children=[
     html.H1(children='Hello World!'),
-    dcc.Graph(figure=world_fig),
-    dcc.Graph(figure=us_fig)
+
+    html.Div(children='''
+        Dash: A web application framework for Python.
+    '''),
+
+
+    html.Div([
+        dcc.Graph(id='g1', figure=world_fig)
+    ], className="eight columns"),
+    html.Div([
+        dcc.Graph(id='g2', figure=us_fig),
+        html.A('Code on Github', href=github)
+    ], className="eight columns"),
+
+    html.Div([
+        html.H3("COVID News"),
+        news_html_table()
+    ]),
 ])
 if __name__ == '__main__':
     app.run_server(debug=True)
