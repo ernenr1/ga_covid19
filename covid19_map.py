@@ -159,7 +159,7 @@ app.layout = html.Div(children=[
         ], className="eight columns", style={'width': '65%', 'display': 'inline-block'}),
 
         html.Div([
-            html.H3("COVID News"),
+            html.H3("COVID News Live Feed"),
             news_html_table(),
             html.A('Code on Github', href=github),
             html.Br(),
