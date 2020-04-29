@@ -1,12 +1,9 @@
 # SARS-CoV-2 Positive Cases Map/News Tracker
-##### Current Version/Update Log
-v1.1.0
-<br>
-..* Commented out code
-<br>
-..* Created time/date stamp
-<br>
-..* Reduce/optimize code
+### Current Version/Update Log
+#### v1.1.0
+* Commented out code
+* Created time/date stamp
+* Reduce/optimize code
 
 ## Getting Started
 
@@ -39,7 +36,7 @@ Currently this app is hosted on Heroku. Please note that the app is hosted using
 
 ## Authors
 
-* **Ernie Enriquez** - [My Personal GitHub Repo](https://github.com/ernenr1)
+* **Ernie Enriquez** - [Personal GitHub Repo](https://github.com/ernenr1)
 
 ## License
 
