@@ -109,7 +109,7 @@ dt_string = curr.strftime("%m/%d/%Y %H:%M:%S")
 
 #####News headlines API request and stores in Pandas dataframe#####
 def update_news():
-    news_api = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=[KEY]"
+    news_api = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=c0075f202afc4576904e8976c8863f6f"
     response_news = requests.get(news_api)
     news_data = response_news.json()
     df_news_import = pd.json_normalize(news_data["articles"])
