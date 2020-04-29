@@ -1,11 +1,16 @@
 # SARS-CoV-2 Positive Cases Map/News Tracker
-General Assembly Final Project
+##### Current Version/Update Log
+v1.1.0
 <br>
-v1.0.1
+..* Commented out code
+<br>
+..* Created time/date stamp
+<br>
+..* Reduce/optimize code
 
 ## Getting Started
 
-We are in a working state. The program has yet to be optimzed as there are many bugs present and reduction to be made. Please note that this Github repository is not serving the Heroku app.
+We are in a now live! Please note that this Github repository is not serving the Heroku app.
 
 [LIVE LINK](https://ga-covid19.herokuapp.com/)
 
@@ -24,7 +29,7 @@ def update_news():
 
 ## Deployment
 
-This app will be deployed and hosted on Heroku once finished.
+Currently this app is hosted on Heroku. Please note that the app is hosted using Heroku's free tier. Therefore, the app may take time to load and wake up because Heroku puts the app to sleep.
 
 ## Built With
 
@@ -34,9 +39,7 @@ This app will be deployed and hosted on Heroku once finished.
 
 ## Authors
 
-* **Ernie Enriquez** - *Initial work* - [Ernie Enriquez](https://github.com/ernenr1)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Ernie Enriquez** - [My Personal GitHub Repo](https://github.com/ernenr1)
 
 ## License
 
