@@ -17,45 +17,45 @@ https://covid19api.com/
 #####################################################
 
 #####API Request#####
-# url = "https://api.covid19api.com/summary"
-# response = requests.get(url)
-# world_data = response.json()
+url = "https://api.covid19api.com/summary"
+response = requests.get(url)
+world_data = response.json()
 
-# #####Import raw JSON into Pandas Dataframe#####
-# df_raw1 = pd.json_normalize(world_data["Countries"])
+#####Import raw JSON into Pandas Dataframe#####
+df_raw1 = pd.json_normalize(world_data["Countries"])
 
-# #####Clean/Format Data for Plotly#####
-# df_world=df_raw1.loc[0:246,['Country', 'CountryCode', 'TotalConfirmed', 'TotalDeaths', 'TotalRecovered']]
+#####Clean/Format Data for Plotly#####
+df_world=df_raw1.loc[0:246,['Country', 'CountryCode', 'TotalConfirmed', 'TotalDeaths', 'TotalRecovered']]
 
-# df_world['TotalDeaths'] = df_world['TotalDeaths'].map(lambda x: "{:,}".format(x))
-# df_world['PositiveCases'] = df_world['TotalConfirmed'].map(lambda x: "{:,}".format(x))
+df_world['TotalDeaths'] = df_world['TotalDeaths'].map(lambda x: "{:,}".format(x))
+df_world['PositiveCases'] = df_world['TotalConfirmed'].map(lambda x: "{:,}".format(x))
 
-# #####Create new column within Dataframe to hold text strings for plot info#####
-# for col in df_world.columns:
-#     df_world[col] = df_world[col].astype(str)
+#####Create new column within Dataframe to hold text strings for plot info#####
+for col in df_world.columns:
+    df_world[col] = df_world[col].astype(str)
 
-# df_world['text'] = "Country: "+df_world['CountryCode']+"<br>"+\
-#     "Positive Cases: "+df_world['PositiveCases']+"<br>"+\
-#     "Deaths: "+df_world['TotalDeaths']
+df_world['text'] = "Country: "+df_world['CountryCode']+"<br>"+\
+    "Positive Cases: "+df_world['PositiveCases']+"<br>"+\
+    "Deaths: "+df_world['TotalDeaths']
 
-# #####Create choropleth plot/customize attributes#####
-# world_fig = go.Figure(data=go.Choropleth(
-#     locations = df_world['Country'],
-#     z = df_world['TotalConfirmed'],
-#     text = df_world['text'],
-#     colorscale = 'Reds',
-#     locationmode = 'country names',
-#     colorbar_title = "Positive Cases",
-# ))
+#####Create choropleth plot/customize attributes#####
+world_fig = go.Figure(data=go.Choropleth(
+    locations = df_world['Country'],
+    z = df_world['TotalConfirmed'],
+    text = df_world['text'],
+    colorscale = 'Reds',
+    locationmode = 'country names',
+    colorbar_title = "Positive Cases",
+))
 
-# world_fig.update_layout(
-#     title_text='Positive COVID-19 Cases in the World',
-#     geo=dict(
-#         showframe=False,
-#         showcoastlines=False,
-#         projection_type='equirectangular'
-#     )
-# )
+world_fig.update_layout(
+    title_text='Positive COVID-19 Cases in the World',
+    geo=dict(
+        showframe=False,
+        showcoastlines=False,
+        projection_type='equirectangular'
+    )
+)
 
 #####################################################
 """
@@ -67,7 +67,7 @@ https://covidtracking.com/
 
 #####API request|Import raw JSON into Pandas Dataframe#####
 df_raw2 = pd.read_json('https://covidtracking.com/api/v1/states/current.json')
-print(df_raw2)
+
 #####Clean/Format Data for Plotly#####
 df_us = df_raw2.loc[0:50, ['state', 'fips', 'positive', 'death']]
 
@@ -179,9 +179,9 @@ app.layout = html.Div(children=[
             #     style=dict(width='50%')
             #     )
             # ]),
-             # html.Div([
-             #     dcc.Graph(id='g1', figure=world_fig)
-             # ]),
+            html.Div([
+                dcc.Graph(id='g1', figure=world_fig)
+            ]),
              html.Div([
                 dcc.Graph(id='g2', figure=us_fig),
             ],)
